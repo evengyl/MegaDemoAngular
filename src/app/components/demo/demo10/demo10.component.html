@@ -1,0 +1,25 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 10 : Les promesses<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Service de Fake authentification</nb-card-header>
+            <nb-card-body>
+                <button nbButton (click)="signIn()" *ngIf="!authStatus">Se connecter</button>
+                <button nbButton (click)="signOut()" *ngIf="authStatus">Se deconnecter</button>
+
+                <br><br>
+
+                <nb-alert accent="success" *ngIf="authStatus">{{ statusMessage }}</nb-alert>
+                <nb-alert accent="danger" *ngIf="!authStatus">{{ statusMessage }}</nb-alert>
+                
+
+            </nb-card-body>
+            <nb-card-footer>une promesse est un objet représentant le résultat futur d’une action exécutée de manière asynchrone
+                pouvant donc terminer à n’importe quel moment.</nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

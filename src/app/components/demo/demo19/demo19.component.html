@@ -1,0 +1,19 @@
+<nb-layout>
+    <nb-layout-header>Demo 19 : La confirm box<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Composant Parent</nb-card-header>
+
+            <nb-card-body> 
+                <nb-list>
+                    <nb-list-item *ngFor="let t of text ; let i = index">
+                        {{t}} : &nbsp;&nbsp;
+                        <button status="warning" (click)="delete(i)" nbButton >Confirmer la suppression</button>
+                    </nb-list-item>
+                </nb-list> 
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+</nb-layout>

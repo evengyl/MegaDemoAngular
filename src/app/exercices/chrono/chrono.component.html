@@ -1,0 +1,19 @@
+
+<nb-layout>
+
+    <nb-layout-header>Demo 5 : Custom Pipe</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-body>
+                <p>Temps : {{ temps }}</p>
+
+                <button nbButton (click)="start()" status="success" [disabled]="timer">Start</button>
+                <button nbButton (click)="stop()" status="danger" [disabled]="!timer">Stop</button>
+                <button nbButton (click)="reset()" status="warning" [disabled]="!temps">Reset</button>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+
+    
+</nb-layout>

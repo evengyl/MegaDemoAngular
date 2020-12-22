@@ -1,0 +1,15 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 5 : Custom Pipe</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="danger">
+            <nb-card-header>Transformation d'un nombre en heure minutes secondes</nb-card-header>
+            <nb-card-body>
+                Nombre original : {{maVarPiper}}<br><br>
+                Nombre custom piper en jours heures minutes secondes : {{ maVarPiper | customPipe }}
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+</nb-layout>

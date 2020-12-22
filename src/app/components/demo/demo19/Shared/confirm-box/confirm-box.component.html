@@ -1,0 +1,10 @@
+<nb-card accent="danger">
+    <nb-card-header>
+        Etes-vous sur de vouloir supprimer ?
+    </nb-card-header>
+    <nb-card-body>
+        <p>{{Message}}</p><br>
+        <button nbButton status="success" (click)="yes()">Oui</button>&nbsp;&nbsp;&nbsp;
+        <button nbButton status="danger" (click)="no()">Non</button>
+    </nb-card-body>
+</nb-card>

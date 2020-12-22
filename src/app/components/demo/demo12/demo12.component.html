@@ -1,0 +1,29 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 12 : Les Modèles de données<br></nb-layout-header>
+
+
+    <nb-layout-column *ngFor="let user of listUser">
+        <nb-card status="success">
+            <nb-card-header>Liste des infos user</nb-card-header>
+
+            <nb-card-body >
+                <nb-list>
+                    <nb-list-item>First Name : {{user.firstname}}</nb-list-item>
+                    <nb-list-item>Last Name : {{user.lastname}}</nb-list-item>
+                    <nb-list-item>Email : {{user.email}}</nb-list-item>
+                    <nb-list-item *ngFor="let film of user.films">
+                        Film : {{film}}
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+
+            <nb-layout-footer>
+    
+            </nb-layout-footer>
+
+        </nb-card>
+    </nb-layout-column>
+
+   
+</nb-layout>

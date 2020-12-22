@@ -1,0 +1,58 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 4 : Les Pipes</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Pipe sur maVar1</nb-card-header>
+            <nb-card-body>
+                <p>Avant : {{ maVar1 }}</p>
+                <p>Après : {{ maVar1 | uppercase}} </p>
+              
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Pipe sur maVar2</nb-card-header>
+            <nb-card-body>
+                <p>Avant : {{ maVar2 }}</p>
+                <p>Après : {{ maVar2 | number : '1.2-2' }} </p>
+              
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Pipe sur maVar3</nb-card-header>
+            <nb-card-body>
+                <p>Avant : {{ maVar3 }}</p>
+              <p>Après : {{ maVar3 | date: 'dd/MM/yyyy'}} </p>
+              
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>
+
+
+
+<!--
+Liste des Pipes déjà existant
+Async
+Currency
+Date
+Decimal
+I18nPlural
+I18nSelect
+Json
+KeyValue
+LowerCase
+Percent
+Slice
+TitleCase
+UpperCase
+-->

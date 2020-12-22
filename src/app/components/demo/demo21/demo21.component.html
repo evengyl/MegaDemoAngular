@@ -1,0 +1,18 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 21 : L'internationalisation ou i18n<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>@Ngx - Traduction</nb-card-header>
+
+            <nb-card-body>
+                {{ 'translation_SayHelloFN' | translate}}<br><br>
+                <button *ngIf="translation.currentLang != 'fr'" status="info" nbButton (click)="changeLang('fr')">Passer en FR</button>
+                <button *ngIf="translation.currentLang != 'en'" status="info" nbButton (click)="changeLang('en')">Passer en EN</button>
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

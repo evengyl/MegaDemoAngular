@@ -1,0 +1,21 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 9 : Les services, injection de dépendances<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Service de Fake authentification</nb-card-header>
+            <nb-card-body>
+                <button nbButton (click)="signIn()" *ngIf="!authStatus">Se connecter</button>
+                <button nbButton (click)="signOut()" *ngIf="authStatus">Se deconnecter</button>
+                <br><br>
+                <nb-alert accent="success" *ngIf="authStatus">Success. You have been successfully authenticated!</nb-alert>
+                <nb-alert accent="danger" *ngIf="!authStatus">Success. You don't be authenticated!</nb-alert>
+
+            </nb-card-body>
+            <nb-card-footer>En tant que tel, le services n'a pas vraiment d'usage mais nous verrons lors de la prochaine démo que ça en a :)</nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

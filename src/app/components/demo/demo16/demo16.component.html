@@ -1,0 +1,88 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 16 : La consommation d'api externes avec observables<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Visualisation des observable de l'api</nb-card-header>
+        
+            <nb-card-body> 
+                <div *ngFor="let user of userList">
+                    userId : {{user.userId}}<br>
+                    lastName : {{user.lastName}}<br>
+                    firstName : {{user.firstName}}<br>
+                    password : {{user.password}}<br>
+                    email : {{user.email}}<br>
+                    active : {{user.active}}
+                    <hr>
+                </div> 
+            </nb-card-body>
+        
+            <nb-card-footer>
+                API utilisée : http://loicbaudoux.somee.com/api/user 
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+    
+
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Visualisation des observable de l'api</nb-card-header>
+        
+            <nb-card-body> 
+                <input nbInput type="number" (change)="onChange()" [(ngModel)]="idToGet" placeholder="id de l'user a chercher"/>
+                <hr>
+                <div *ngIf="userUniq != null">
+                    userId : {{userUniq.userId}}
+                    lastName : {{userUniq.lastName}}
+                    firstName : {{userUniq.firstName}}
+                    password : {{userUniq.password}}
+                    email : {{userUniq.email}}
+                    active : {{userUniq.active}}
+                </div> 
+            </nb-card-body>
+        
+            <nb-card-footer>
+                API utilisée : http://loicbaudoux.somee.com/api/user
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>envoi de donnée à l'api pour visualisation</nb-card-header>
+        
+            <nb-card-body>  
+                <form [formGroup]="userForm" (ngSubmit)="postUser()">
+
+                    <input formControlName="lastName" type="text" nbInput fullWidth placeholder="Nom"><br><br>
+                    
+                    <input formControlName="firstName" type="text" nbInput fullWidth placeholder="Prénom"><br><br>
+
+                    <input formControlName="password" type="password" nbInput fullWidth placeholder="Password"><br><br>
+
+                    <input formControlName="email" type="email" nbInput fullWidth placeholder="Eamil"><br><br>
+
+                    
+                    <p  *ngIf="userForm.controls.lastName.invalid || 
+                                userForm.controls.firstName.invalid || 
+                                userForm.controls.password.invalid ||
+                                userForm.controls.email.invalid ">
+                        Est requis !
+                    </p>
+                    
+                    <button  nbButton type="submit" status="info">Envoyer</button>
+
+                    
+                </form>
+            </nb-card-body>
+        
+          
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

@@ -1,0 +1,47 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 13 : Les Formulaire Reactive Angular<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Service de connexion FAKE</nb-card-header>
+        <nb-card-body>  
+            <h5>Version du Two way binding dans le reactive form</h5>
+                <p>Value du Login en direct du .ts&nbsp;&nbsp;&nbsp;&nbsp;<b>{{DirectLogin}}</b></p>
+                <p>Value du Password en direct du .ts &nbsp;&nbsp;&nbsp;&nbsp;<b>{{DirectPassword}}</b></p>
+                <p>Value du gender en direct du .ts &nbsp;&nbsp;&nbsp;&nbsp;<b>{{DirectGender}}</b></p>
+                <p><b><i>PS : c'est juste un two way binding, mais c'est pour vous montrer qu'on peux le faire avec des reactive forms aussi</i></b></p>
+            
+                    <br>
+                <h5>Version du binding DU reactive form</h5>
+                    <p>Value du Login en direct du reactive form<p><br>
+                    <pre>{{loginForm1.value | json}}</pre><br><br>
+                    <p>Value du Login en direct du reactive form&nbsp;&nbsp;&nbsp;&nbsp;{{loginForm1.value.login | json}}</p>
+                    <p>Value du Password en direct du reactive form&nbsp;&nbsp;&nbsp;&nbsp;{{loginForm1.value.password | json}}</p>
+                    <p>Value du gender en direct du reactive form&nbsp;&nbsp;&nbsp;&nbsp;{{loginForm1.value.gender | json}}</p>
+            
+            
+            <!--En angular reactive form pour binder le submit c'est avec nbSubmit-->
+                <form [formGroup]="loginForm1" (ngSubmit)="submitForm()">
+                    <!--Ici formGroup est une expression angular, donc elle doit être mis entre crochet-->
+                    <input [(ngModel)]="DirectLogin"  formControlName="login" type="text" nbInput fullWidth placeholder="Login"><br><br>
+                    <!-- formControlName référence de simple chaine de caractere donc ne contienne pas de crochet-->
+                    <input [(ngModel)]="DirectPassword"  formControlName="password" type="password" nbInput fullWidth placeholder="Password"><br><br>
+
+                    <nb-select [(ngModel)]="DirectGender" formControlName="gender" fullWidth placeholder="Select gender" >
+                        <nb-option *ngFor="let genre of listGender" value={{genre}}>{{genre}}</nb-option>
+                    </nb-select><br><br>
+
+                    <button nbButton [disabled]="loginForm1.invalid" type="submit" status="info">Envoyer</button>
+                </form>
+
+            </nb-card-body>
+            <nb-card-footer>
+                <nb-alert accent="success" *ngIf="isAuth">{{ statusMessage }}</nb-alert>
+                <nb-alert accent="danger" *ngIf="!isAuth">{{ statusMessage }}</nb-alert>
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

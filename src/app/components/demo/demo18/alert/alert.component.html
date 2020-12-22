@@ -1,0 +1,13 @@
+<div class="alert {{_colorDefineInParent}}">
+    <h1>Fn Herstal</h1>
+    <h3>{{_messageIntroByParent}}</h3>
+</div>
+
+<br><br>
+
+<button nbButton status="success" (click)="changeInParent(true)">Yes</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button nbButton status="danger" (click)="changeInParent(false)">No</button>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+
+
+<button nbButton status="success" (click)="sendMessageToParent(messageForParent)">Afficher le message de l'enfant</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button nbButton status="warning" (click)="sendMessageToParent('')">Supprimer ce même message de l'enfant</button>

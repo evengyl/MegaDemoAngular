@@ -1,0 +1,69 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 3 : Event Binding</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="danger">
+            <nb-card-header>Event Binding de la vue vers le .Ts - (Click)</nb-card-header>
+            <nb-card-body>
+              
+                <p>La valeur du nombre est : {{ nb1 }}</p>
+
+                <button nbButton status="success" (click)="increaseNB1()" [disabled]="nb1 >= 9">+</button>&nbsp;
+                <button nbButton status="danger" (click)="decreaseNB1()" [disabled]="nb1 <= 0">-</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button nbButton status="info" (click)="resetNB1()" [disabled]="nb1 == 0">Reset</button>
+
+                <!--
+                    Binding de propriétés {{ nomProp }}
+                    Binding d'evenement  (nomdelevent)
+                    Travail d'attribut [nomAttribut]
+                -->
+            </nb-card-body>
+          </nb-card>
+
+
+          <nb-card status="danger">
+            <nb-card-header>Event Binding de la vue vers le .Ts - keyDown</nb-card-header>
+            <nb-card-body>
+              
+                <p>La valeur du nombre est : {{ nb2 }}</p>
+
+                <button nbButton status="success" (mouseenter)="increaseNB2()" [disabled]="nb2 >= 9">+</button>&nbsp;
+                <button nbButton status="danger" (mouseenter)="decreaseNB2()" [disabled]="nb2 <= 0">-</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button nbButton status="info" (click)="resetNB2()" [disabled]="nb2 == 0">Reset</button>
+
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+    <nb-layout-column>
+        <nb-card status="info">
+            <nb-card-header>List des events Binding</nb-card-header>
+                <nb-list>
+                    <nb-list-item>click = au clic de la souris</nb-list-item>
+                    <nb-list-item>dblclick = au double clic de la souris</nb-list-item> 
+                    <nb-list-item>submit = a l'envoi du formulaire</nb-list-item>
+                    <nb-list-item>blur = perte du focus de l'élément (form)</nb-list-item>  
+                    <nb-list-item>focus = au focus de l'élement</nb-list-item> 
+                    <nb-list-item>scroll = lors du scroll de l'élement</nb-list-item>
+                    <nb-list-item>cut = lors du ctrl+x</nb-list-item>
+                    <nb-list-item>copy = lors du ctrl+c</nb-list-item>
+                    <nb-list-item>paste = lors du ctrl+v</nb-list-item>
+                    <nb-list-item>keyup = touche du clavier up</nb-list-item>
+                    <nb-list-item>keypress = lors d'un appui sur une touche clavier</nb-list-item>
+                    <nb-list-item>keydown = touche du clavier down</nb-list-item>
+                    <nb-list-item>mouseup = lache le bouton de la souris (sur l'élement)</nb-list-item>
+                    <nb-list-item>mousedown = appuye le bouton de la souris (sur l'élement)</nb-list-item>
+                    <nb-list-item>mouseenter = la souris rentre dans l'élément</nb-list-item>
+                    <nb-list-item>drag = lors de la sélection de l'élement pour le déplacer</nb-list-item>
+                    <nb-list-item>drop = lors du relachement de ce même élement</nb-list-item>
+                    <nb-list-item>dragover = lors du déplacement de cet élement (toute les 100ms)</nb-list-item>
+                </nb-list>
+            
+          </nb-card>
+    </nb-layout-column>
+
+      
+
+
+</nb-layout>

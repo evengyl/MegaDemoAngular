@@ -1,0 +1,28 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 15 : Les Observables<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header></nb-card-header>
+        
+            <nb-card-body>  
+                L'observable en lui meme : {{myObservable$ | async}}<br><br>
+
+                numbTest subscriber : {{numbTest}}<br><br>
+                
+                Message de fin : {{strMessageObs}}<br><br>
+
+                <button (click)="unSub()" nbButton status="warning">Unsubscribe</button><br><br>
+                <button (click)="unSubAfter(10)" nbButton status="warning">Unsubscribe after 10 sec</button><br>
+            </nb-card-body>
+        
+            <nb-card-footer>
+                les observables sont des variable sur laquel on va pouvoir souscrir un abonnement
+                chaque modification apportée a l'observée, sera impacter directement dans l'observeur
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

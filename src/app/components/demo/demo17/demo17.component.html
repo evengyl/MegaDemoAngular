@@ -1,0 +1,37 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 17 : La consommation d'api signalR<br>API utilisée : http://loicbaudoux.somee.com/ChatHub</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Messagerie</nb-card-header>
+        
+            <nb-card-body> 
+                <input nbInput fullWidth [(ngModel)]="newMessage" placeholder="Message à envoyer aux collègues"/><br><br>
+                <button nbButton status="success" (click)="click()">Envoyer le message</button>
+            </nb-card-body>
+        
+            <nb-card-footer>
+                <button nbButton status="danger" (click)="resetChat()">Reset le chat</button>
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+    <nb-layout-column>
+        <nb-card status="info">
+            <nb-card-header>Listes des messages</nb-card-header>
+        
+            <nb-card-body> 
+                <nb-list>
+                    <nb-list-item *ngFor="let msg of listMessages">{{msg | json }}</nb-list-item>
+                </nb-list>
+            </nb-card-body>
+        
+            <nb-card-footer>
+                API utilisée : http://loicbaudoux.somee.com/ChatHub
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+</nb-layout>

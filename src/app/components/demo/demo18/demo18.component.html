@@ -1,0 +1,41 @@
+<nb-layout>
+    <nb-layout-header>Demo 18 : Les Input Output<br></nb-layout-header>
+
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Composant Parent</nb-card-header>
+            <nb-card-body>  
+
+                <button nbButton status="info" (click)="changeColor()">Change Color</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <button nbButton status="info">{{resultatFromChildren}}</button>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button nbButton status="success">{{receivedChildMessage}}</button>
+
+            </nb-card-body>
+        
+          </nb-card>
+
+
+          <nb-card status="warning">
+
+            <nb-card-header>Composant Enfant</nb-card-header>
+
+            <nb-card-body>  <!--comme on a crée un input coté enfant on peux donc l'appeler dans le selecteur du coté parent-->
+                <!--comme une expression, et elle prendra en param ce que l'on voudra du coup-->
+                <app-alert
+                            [_messageIntroByParent]="MessageIntroByParent"
+                            [_colorDefineInParent]="ColorDefineInParent" 
+                            (OutputParent)="ChangeStatusByChildren($event)"
+                            (messageToEmit)="getMessageByChild($event)">
+                </app-alert>
+            </nb-card-body>
+        
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>

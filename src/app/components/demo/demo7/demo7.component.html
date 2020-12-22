@@ -1,0 +1,76 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 7 : Les Directives structurelles</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Affichage conditionnel avec le *ngIf</nb-card-header>
+            <nb-card-body>
+                <button nbButton (click)="OpenClose()"><nb-icon icon="arrow-down"></nb-icon>Ouvert ? : {{ isOpen }}</button>
+                <div *ngIf="isOpen">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eveniet quibusdam accusamus, impedit suscipit aliquid, voluptatum incidunt laboriosam porro doloribus ipsam aperiam sapiente magnam inventore assumenda fugit perspiciatis, facilis omnis.</p>
+                </div>
+            </nb-card-body>
+            <nb-layout-footer>
+                Le ngIf Angular insère ou supprime un élément en fonction d'une condition de true / false
+            </nb-layout-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Le *ngFor représente en angular une boucle normal</nb-card-header>
+            <nb-card-body>
+                <ul>
+                    <li *ngFor="let item of liste">
+                        {{ item }}
+                    </li>
+                </ul>
+                <hr>
+                <ul>
+                    <li *ngFor="let item of liste; let i = index;" > 
+                        {{ i }} : {{ item }}
+                    </li>
+                </ul>
+                <hr>
+                <ul>
+                    <li *ngFor="let item of liste2 | keyvalue;" > 
+                        {{ item.key }} : {{ item.value }}
+                    </li>
+                </ul>
+                <hr>
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+
+
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Le ngSwitch, permet de faire un binding 2 way sur un choix donné (ngFor ne marchant pas pour les simuler)</nb-card-header>
+            <nb-card-body>
+                <input placeholder="Choix" nbInput [(ngModel)]= "maVariableDeSwitch" />
+            </nb-card-body>
+            <nb-layout-footer>
+                <div>
+                    <div [ngSwitch]="maVariableDeSwitch">
+                        <div *ngSwitchCase="1">Choix numero 1</div>
+                        <div *ngSwitchCase="2">Choix numero 2</div>
+                        <div *ngSwitchCase="3">Choix numero 3</div>
+                        <div *ngSwitchCase="4">Choix numero 4</div>
+                        <div *ngSwitchDefault>Non Trouvé / Par défault</div>
+                    </div>
+                </div>
+            </nb-layout-footer>
+        </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>
+<!--
+    {{ maVar }} => Consomme le contenu de ma propriété
+    [(ngModel)]="maVar" => modifie le contenu de la propriété
+-->

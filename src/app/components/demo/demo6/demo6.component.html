@@ -1,0 +1,45 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 6 : Les Binding Two Way</nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Binding sur maVar1</nb-card-header>
+            <nb-card-body>
+                <p>Value de maVar1 : <b>{{ maVar1 }}</b></p>
+                <input type="text" nbInput status="info" [(ngModel)]="maVar1" />
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Binding sur maVar2</nb-card-header>
+            <nb-card-body>
+                <p>Value de maVar2 : <b>{{ maVar2 }}</b></p>
+                <input type="number" nbInput status="info" [(ngModel)]="maVar2" />
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Binding sur maVar3</nb-card-header>
+            <nb-card-body>
+                <p>Value de maVar3 : <b>{{ maVar3 }}</b></p>
+                <nb-checkbox [(ngModel)]="maVar3" status="info">{{ maVar3 }}</nb-checkbox>
+            </nb-card-body>
+            <nb-card-footer>
+                <nb-alert status="success">
+                    
+                </nb-alert>
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>
+<!--
+    {{ maVar }} => Consomme le contenu de ma propriété .ts vers .html
+    [(ngModel)]="maVar" => modifie le contenu de la propriété .html vers .ts
+-->

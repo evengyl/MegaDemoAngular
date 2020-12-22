@@ -1,0 +1,31 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 22 : Les Customs Validators Asynchrone<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>envoi de donnée à l'api pour visualisation</nb-card-header>
+        
+            <nb-card-body>  
+                <form [formGroup]="countryForm">
+
+                    <input status="{{ countryForm.controls.Pays.dirty ? (countryForm.controls.Pays.errors?.countryExist ? 'success' : 'danger') : 'info' }}"
+                     formControlName="Pays" type="text" nbInput fullWidth placeholder="Pays"><br><br>
+                    
+                    <p *ngIf="countryForm.controls.Pays.errors?.countryExist">
+                        Le pays --> {{countryForm.value.Pays}}, existe bien.
+                    </p>
+
+                    <p *ngIf="countryForm.controls.Pays.dirty && !countryForm.controls.Pays.errors?.countryExist">
+                        Le pays : {{countryForm.value.Pays}}, n'existe pas.
+                    </p>
+                </form>
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+
+
+
+
+</nb-layout>    
+

@@ -1,0 +1,52 @@
+<nb-layout>
+
+    <nb-layout-header>Demo 14 : Les customs validators<br></nb-layout-header>
+
+    <nb-layout-column>
+        <nb-card status="success">
+            <nb-card-header>Les validations de formulaires custom angular 7/8/9/10</nb-card-header>
+        <nb-card-body>  
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <input [status]="toStatus(loginForm.controls.login)" formControlName="login" type="text" nbInput fullWidth placeholder="Login"><br><br>
+                    <p  *ngIf="loginForm.controls.login.invalid">
+                        {{loginForm.controls.login.errors['error']}}
+                    </p>
+
+
+                    <input [status]="toStatus(loginForm.controls.password)" formControlName="password" type="password" nbInput fullWidth placeholder="Mot de passe"><br><br>
+                    <p  *ngIf="loginForm.controls.password.invalid">
+                        {{loginForm.controls.password.errors['error']}}
+                    </p>
+
+
+                    <input nbInput [status]="toStatus(loginForm.controls.date)" [nbDatepicker]="dp" type="text" fullWidth formControlName="date" placeholder="Choisissez une date">
+                    <nb-datepicker #dp></nb-datepicker>
+                    <p  *ngIf="loginForm.controls.date.invalid">
+                        {{loginForm.controls.date.errors['error']}}
+                    </p>
+
+                    
+                    <button  nbButton type="submit" status="info">Envoyer</button>
+
+                    <p status="danger" *ngIf="loginForm.controls.login.errors != null && 
+                                                !loginForm.controls.login.pristine ||
+                                              loginForm.controls.password.errors != null && 
+                                                !loginForm.controls.password.pristine ||
+                                              loginForm.controls.date.errors != null && 
+                                                !loginForm.controls.date.pristine">
+                        <i>Le champs est requis</i>
+                    </p>
+
+                    
+                </form>
+
+            </nb-card-body>
+            <nb-card-footer>
+               
+            </nb-card-footer>
+          </nb-card>
+    </nb-layout-column>
+
+
+</nb-layout>
